@@ -1,4 +1,6 @@
-dist/
+dist/PyNOX/PyNOX.exe
+dist/PyNOX/_internal/
+dist/_build_tmp/
 build/
 __pycache__/
 *.pyc

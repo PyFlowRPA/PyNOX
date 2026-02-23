@@ -1,0 +1,13 @@
+"""
+ui/theme.py — 다크 테마 색상 상수
+"""
+DARK_BG     = "#1e1e2e"
+DARK_PANEL  = "#2a2a3e"
+DARK_BORDER = "#3a3a5c"
+ACCENT      = "#7c6af7"
+ACCENT_H    = "#9580ff"
+TEXT        = "#cdd6f4"
+TEXT_DIM    = "#6c7086"
+GREEN       = "#a6e3a1"
+RED         = "#f38ba8"
+YELLOW      = "#f9e2af"
