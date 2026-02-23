@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Pack src/ into release.zip
+        run: |
+          mkdir -p _pack/src
+          cp -r src/* _pack/src/
+          find _pack/src -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true
+          find _pack/src -name "*.pyc" -delete 2>/dev/null || true
+          rm -f _pack/src/build.py _pack/src/release.py
+          rm -rf _pack/src/updater
+          cd _pack && zip -r ../release.zip src/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release.zip
+          generate_release_notes: true

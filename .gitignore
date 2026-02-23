@@ -1,0 +1,8 @@
+dist/
+build/
+__pycache__/
+*.pyc
+*.pyo
+.file_snapshot.json
+wc3_config.json
+release.zip
