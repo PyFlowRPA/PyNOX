@@ -23,6 +23,9 @@ jobs:
           find _pack/src -name "*.pyc" -delete 2>/dev/null || true
           rm -f _pack/src/build.py _pack/src/release.py
           rm -rf _pack/src/updater
+          # 태그명으로 version.py 자동 업데이트 (v 접두사 제거)
+          VERSION="${GITHUB_REF_NAME#v}"
+          echo "__version__ = \"$VERSION\"" > _pack/src/version.py
           cd _pack && zip -r ../release.zip src/
 
       - name: Create GitHub Release

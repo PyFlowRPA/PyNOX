@@ -35,6 +35,7 @@ from src.ui.overlay import OverlayWindow
 from src.ui.portal_widget import PORTAL_CONFIGS, PortalZoneWidget, PortalBossPanel
 from src.ui.widgets import ConfigSpinBox, ConfigCheckBox
 from src.utils.config import load_config, save_config, update_config, update_config_multi
+from src.utils.updater import get_local_version
 from src.utils.process import find_war3_hwnd
 from src.utils.smartkey import _smart_hook
 from src.utils.ocr import _kor_available, ocr_text as _ocr_text
@@ -1118,7 +1119,7 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("NOX 매크로")
+        self.setWindowTitle(f"NOX 매크로  v{get_local_version()}")
         self.setMinimumSize(670, 892)
         self.resize(670, 961)
         self._thread: QThread | None = None
